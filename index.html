@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Online Pizza Order</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Dillon's Tasty Pizza Pies</h1>
+			<form id="pizza-order">
+				<div class="form-group">
+					<h5>What size pizza would you like?</h5>
+					<select class="form-control" id="pizza-size">
+						<option value="small">Small (10 inches)</option>
+						<option value="medium">Medium (12 inches)</option>
+						<option value="large">Large (14 inches)</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<h5>What sauce base would you like?</h5>
+					<select class="form-control" id="pizza-sauce">
+						<option value="marinara">Marinara sauce</option>
+						<option value="pesto">Pesto sauce</option>
+						<option value="evoo">Olive oil</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<h5>What toppings would you like?</h5><br>
+					<div class="row">
+						<div class="col-sm-4">
+							<input type="checkbox" name="pizza-toppings" value="pepperoni"> Pepperoni<br>
+							<input type="checkbox" name="pizza-toppings" value="sausage"> Sausage<br>
+							<input type="checkbox" name="pizza-toppings" value="bacon"> Bacon<br>
+							<input type="checkbox" name="pizza-toppings" value="salami"> Salami<br>
+							<input type="checkbox" name="pizza-toppings" value="green-pep"> Green Peppers<br>
+						</div>
+						<div class="col-sm-4">
+							<input type="checkbox" name="pizza-toppings" value="red-pep"> Red Peppers<br>
+							<input type="checkbox" name="pizza-toppings" value="artichoke"> Artichoke Hearts<br>
+							<input type="checkbox" name="pizza-toppings" value="pineapple"> Pineapple<br>
+							<input type="checkbox" name="pizza-toppings" value="basil"> Basil<br>
+							<input type="checkbox" name="pizza-toppings" value="olive"> Olives<br>
+						</div>
+						<div class="col-sm-4">
+							<input type="checkbox" name="pizza-toppings" value="mushroom"> Mushrooms<br>
+							<input type="checkbox" name="pizza-toppings" value="tomato"> Tomatoes<br>
+							<input type="checkbox" name="pizza-toppings" value="onion"> Onions<br>
+							<input type="checkbox" name="pizza-toppings" value="jalapeno"> Jalapenos<br>
+							<input type="checkbox" name="pizza-toppings" value="garlic"> Garlic<br>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="pizza-order-results">
+ 		</div>
+	</body>
+</html>
