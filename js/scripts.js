@@ -1,6 +1,8 @@
 //backend logic
-var toppingsArray = [""];
+var toppingsArray = [];
 var pizzaCost = 0;
+
+//Pizza object constructor
 
 function Pizza (size, sauce, toppings) {
 	this.size = size;
@@ -8,15 +10,51 @@ function Pizza (size, sauce, toppings) {
 	this.toppings = toppings;
 }
 
-var getToppingsArray = function() {
+//Topping object constructor
+
+function Topping (name, type) {
+	this.name = name;
+	this.type = type;
+	this.cost = 0;
+}
+
+//Gives cost attribute to Topping instances
+
+Topping.prototype.charge = function () {
+	if (this.type === "meat") {
+		this.cost += 2;
+		} else {
+		this.cost += 1;
+		}
+}
+
+//Creates array of all Topping instances with their name, type, and cost variables set
+
+var createToppings = function () {
 	$("input:checkbox[name=pizza-toppings]:checked").each(function() {
-	var pizzaTopping = $(this).val();
-	toppingsArray.push(pizzaTopping);
+		var pizzaTopping = $(this).val();
+		if (pizzaTopping === "pepperoni" || pizzaTopping === "sausage" || pizzaTopping === "bacon" || pizzaTopping === "salami") {
+			var toppingType = "meat";
+			}	else {
+			var toppingType = "veggie";
+			}
+		var newTopping = new Topping(pizzaTopping, toppingType);
+		newTopping.charge();
+		toppingsArray.push(newTopping);
 	});
 };
 
+//Creates size, sauce, and toppings variables needed to create Pizza object
+
+var getInputs = function() {
+	inputSize = $("#pizza-size").val();
+	inputSauce = $("#pizza-sauce").val();
+	createToppings();
+	};
+
+//Calculates cost of pizza based on pizza size, sauce, and topping type
+
 Pizza.prototype.cost = function () {
-	alert(this.size);
 	if (this.size === "small") {
 			pizzaCost += 10;
 		} else if (this.size === "medium") {
@@ -28,20 +66,34 @@ Pizza.prototype.cost = function () {
 			pizzaCost += 2;
 		} else if (this.sauce === "evoo") {
 			pizzaCost += 3
-	}
+		}
+	toppingsArray.forEach(function(item) {
+		pizzaCost += item.cost;
+	});
 }
+
+Pizza.prototype.display = function () {
+	var displayArray = [];
+	toppingsArray.forEach(function(item) {
+		displayArray.push(item.name);
+	});
+	$("#ingredients").text(displayArray.join(", "));
+	$("#size").text(this.size);
+	$("#base").text(this.sauce);
+	$(".pizza-order-results").show();
+};
 
 //frontend logic
 $(document).ready(function() {
   $("form#pizza-order").submit(function(event) {
 		event.preventDefault();
-		inputSize = $("#pizza-size").val();
-		inputSauce = $("#pizza-sauce").val();
-		getToppingsArray();
+		getInputs();
 		var newPizza = new Pizza(inputSize, inputSauce, toppingsArray);
 		newPizza.cost();
+		newPizza.display();
 		console.log(newPizza);
 		alert(pizzaCost);
-		alert(inputSize + inputSauce + toppingsArray);
+		toppingsArray = [];
+		pizzaCost = 0;
 	});
 });
