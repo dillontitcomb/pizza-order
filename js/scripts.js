@@ -3,7 +3,6 @@ var toppingsArray = [];
 var pizzaCost = 0;
 
 //Pizza object constructor
-
 function Pizza (size, sauce, toppings) {
 	this.size = size;
 	this.sauce = sauce;
@@ -11,7 +10,6 @@ function Pizza (size, sauce, toppings) {
 }
 
 //Topping object constructor
-
 function Topping (name, type) {
 	this.name = name;
 	this.type = type;
@@ -19,7 +17,6 @@ function Topping (name, type) {
 }
 
 //Gives cost attribute to Topping instances
-
 Topping.prototype.charge = function () {
 	if (this.type === "meat") {
 		this.cost += 2;
@@ -29,7 +26,6 @@ Topping.prototype.charge = function () {
 }
 
 //Creates array of all Topping instances with their name, type, and cost variables set
-
 var createToppings = function () {
 	$("input:checkbox[name=pizza-toppings]:checked").each(function() {
 		var pizzaTopping = $(this).val();
@@ -45,7 +41,6 @@ var createToppings = function () {
 };
 
 //Creates size, sauce, and toppings variables needed to create Pizza object
-
 var getInputs = function() {
 	inputSize = $("#pizza-size").val();
 	inputSauce = $("#pizza-sauce").val();
@@ -53,7 +48,6 @@ var getInputs = function() {
 	};
 
 //Calculates cost of pizza based on pizza size, sauce, and topping type
-
 Pizza.prototype.cost = function () {
 	if (this.size === "small") {
 			pizzaCost += 10;
@@ -64,7 +58,7 @@ Pizza.prototype.cost = function () {
 	}
 	if (this.sauce === "pesto") {
 			pizzaCost += 2;
-		} else if (this.sauce === "evoo") {
+		} else if (this.sauce === "olive oil") {
 			pizzaCost += 3
 		}
 	toppingsArray.forEach(function(item) {
@@ -72,14 +66,17 @@ Pizza.prototype.cost = function () {
 	});
 }
 
+//Displays details of pizza order and the charge to the customer
 Pizza.prototype.display = function () {
 	var displayArray = [];
-	toppingsArray.forEach(function(item) {
+	this.toppings.forEach(function(item) {
 		displayArray.push(item.name);
 	});
 	$("#ingredients").text(displayArray.join(", "));
 	$("#size").text(this.size);
 	$("#base").text(this.sauce);
+	$("#pizza-cost").text(pizzaCost);
+	$("form#pizza-order").hide();
 	$(".pizza-order-results").show();
 };
 
@@ -91,9 +88,13 @@ $(document).ready(function() {
 		var newPizza = new Pizza(inputSize, inputSauce, toppingsArray);
 		newPizza.cost();
 		newPizza.display();
-		console.log(newPizza);
-		alert(pizzaCost);
 		toppingsArray = [];
 		pizzaCost = 0;
+		$("button#reorder").click(function() {
+			$(".pizza-order-results").hide();
+			$("form#pizza-order").show();
+		});
+
 	});
+
 });

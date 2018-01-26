@@ -9,7 +9,9 @@
   </head>
   <body>
     <div class="container">
-      <h1>Dillon's Tasty Pizza Pies</h1>
+			<div class="jumbotron">
+	    	<h1>Dillon's Pies</h1>
+			</div>
 			<form id="pizza-order">
 				<div class="form-group">
 					<h5>What size pizza would you like?</h5>
@@ -24,21 +26,21 @@
 					<select class="form-control" id="pizza-sauce">
 						<option value="marinara">Marinara sauce</option>
 						<option value="pesto">Pesto sauce</option>
-						<option value="evoo">Olive oil</option>
+						<option value="olive oil">Olive oil</option>
 					</select>
 				</div>
 				<div class="form-group">
-					<h5>What toppings would you like?</h5><br>
+					<h5>What toppings would you like?</h5>
 					<div class="row">
 						<div class="col-sm-4">
 							<input type="checkbox" name="pizza-toppings" value="pepperoni"> Pepperoni<br>
 							<input type="checkbox" name="pizza-toppings" value="sausage"> Sausage<br>
 							<input type="checkbox" name="pizza-toppings" value="bacon"> Bacon<br>
 							<input type="checkbox" name="pizza-toppings" value="salami"> Salami<br>
-							<input type="checkbox" name="pizza-toppings" value="green-pep"> Green Peppers<br>
+							<input type="checkbox" name="pizza-toppings" value="green pepper"> Green Peppers<br>
 						</div>
 						<div class="col-sm-4">
-							<input type="checkbox" name="pizza-toppings" value="red-pep"> Red Peppers<br>
+							<input type="checkbox" name="pizza-toppings" value="red pepper"> Red Peppers<br>
 							<input type="checkbox" name="pizza-toppings" value="artichoke"> Artichoke Hearts<br>
 							<input type="checkbox" name="pizza-toppings" value="pineapple"> Pineapple<br>
 							<input type="checkbox" name="pizza-toppings" value="basil"> Basil<br>
@@ -54,11 +56,13 @@
 					</div>
 				</div>
 				<button type="submit" class="button btn-success">Submit your order</button>
-			</form>
+			</form><br>
+			<div class="pizza-order-results">
+				<h5>Thanks for your order! To confirm, you've selected a size <span id="size"></span> pizza with a <span id="base"></span> base and the following toppings:</h5>
+				<p><span id="ingredients"></span></p>
+				<h5>Your order will come to <strong>$<span id="pizza-cost"></span></strong> dollars and will arrive soon. Thanks!</h5>
+				<button type="click" id="reorder" class="button btn-info">Still hungry? Order again</button>
+	 		</div>
 		</div>
-		<div class="pizza-order-results">
-			<h3>Thanks for your order! Your size <span id="size"></span> pizza with a <span id="base"></span> base and the following toppings will be there soon:</h3>
-			<p><span id="ingredients"></span></p>
- 		</div>
 	</body>
 </html>
