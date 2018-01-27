@@ -21,20 +21,12 @@ __
 	* _Example input: "pesto base, medium size, pepperoni, etc..."_
 	* _Example output: "your order will come to 30 dollars"_
 
-## More Options
-
-* _Checkout display with cost and text addressing user_
-
-* _
-
-
-
 ## Setup/Installation Requirements
 
 * _Clone this repository_
 * _On a Mac, run the following command:_
 * _open index.html_
-* _input a number to count to_
+* _input your desired pizza order to see the price_
 
 ## Known Bugs
 
@@ -53,6 +45,8 @@ _Please contact me at dillontitcomb@gmail.com with inquiries._
 * _JQuery 3.2.1_
 
 ## Link to page
+
+https://github.com/dillontitcomb/pizza-order
 
 ### License
 
