@@ -93,6 +93,7 @@ $(document).ready(function() {
 		$("button#reorder").click(function() {
 			$(".pizza-order-results").hide();
 			$("form#pizza-order").show();
+			location.reload();
 		});
 
 	});

@@ -6,3 +6,15 @@
 	float: right;
 	width: 120px;
 }
+
+body {
+	background-color: #e9ecef;
+}
+
+.jumbotron {
+	background-color: white;
+}
+
+input {
+	margin: 3px;
+}

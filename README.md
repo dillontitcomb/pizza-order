@@ -20,6 +20,9 @@ __
 * _Program returns pizza cost based on ingredient and size factors_
 	* _Example input: "pesto base, medium size, pepperoni, etc..."_
 	* _Example output: "your order will come to 30 dollars"_
+* _Program allows user to return to form and order second pizza_
+	* _Example input: (click on "still hungry?" button_
+	* _Example output: return to form with all fields empty_
 
 ## Setup/Installation Requirements
 
